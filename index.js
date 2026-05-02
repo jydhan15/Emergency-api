@@ -3,17 +3,21 @@ const cors = require('cors');
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Fake database
+// Fake DB
 let emergencies = [];
 let idCounter = 1;
 
-// Home route
+// Home
 app.get('/', (req, res) => {
   res.send('🚨 Emergency API is running!');
+});
+
+// Health check (IMPORTANT)
+app.get('/health', (req, res) => {
+  res.json({ status: "OK", message: "API is live" });
 });
 
 // CREATE
@@ -31,7 +35,7 @@ app.post('/emergency', (req, res) => {
   });
 });
 
-// GET ALL
+// READ ALL
 app.get('/emergency', (req, res) => {
   res.json(emergencies);
 });
@@ -70,9 +74,9 @@ app.delete('/emergency/:id', (req, res) => {
   res.json({ message: 'Deleted successfully' });
 });
 
-// START SERVER
+// START
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
   console.log('🚀 Server running on port ' + PORT);
 });
