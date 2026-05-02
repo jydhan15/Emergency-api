@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <div class="header-top">
+          <div class="siren"></div>
+          <h1>Emergency dashboard</h1>
+        </div>
+        <p class="sub" id="sub">Loading...</p>
+      </div>
+      <button class="send-btn" onclick="sendEmergency()">
+        + Send emergency
+      </button>
+      <div class="section-label">Active reports</div>
+      <div id="list"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
