@@ -21,7 +21,14 @@ app.get('/', (req, res) => {
 
 // CREATE
 app.post('/emergency', (req, res) => {
-  const data = { id: id++, ...req.body };
+  const { name, message } = req.body;
+
+  // ✅ Validate input
+  if (!name || !message) {
+    return res.status(400).json({ error: 'name and message are required' });
+  }
+
+  const data = { id: id++, name, message };
   emergencies.push(data);
   res.json(data);
 });
