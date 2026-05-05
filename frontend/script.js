@@ -35,8 +35,8 @@ function loadEmergencies() {
           <div class="card-dot"></div>
           <div class="card-body">
             <div class="card-id">#${String(item.id).padStart(4, '0')}</div>
-            <div class="card-name">${item.name}</div>
-            <div class="card-msg">${item.message}</div>
+           <div class="card-name">${item.name || 'Unknown'}</div>
+           <div class="card-msg">${item.message || 'No message'}</div>
           </div>
           <button class="del-btn" onclick="deleteEmergency(${
             item.id
